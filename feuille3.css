@@ -1,0 +1,100 @@
+body {
+    background-color: #e8ffff;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #008b8b;
+}
+
+.activite {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #FFA42E;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+	transition: background-color 0.3s;
+}
+.activite:hover {
+    background-color: #FF9000;
+}
+
+button {
+    background-color: #00a8a8;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #007575;
+}
+
+.activite {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #FFA42E;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.description {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    background-color: white;
+    border: 2px solid #FFA42E;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-weight: normal;
+    z-index: 100;
+	transition: background-color 0.3s;
+}
+
+.activite:hover .description {
+    display: block;
+}
+
+
+
+table {
+    width: 70%;
+    margin: auto;
+    border-collapse: collapse;
+	border-spacing: 0;
+    background-color: white; /* même couleur que la page */
+    border: 3px solid orange;
+	border-radius: 25 px;
+	overflow: hidden;
+}
+
+th {
+    border: 2px solid orange;
+    padding: 12px;
+    background-color: #e8ffff;
+    color: #008b8b;
+}
+
+td {
+    border: 2px solid orange;
+    padding: 12px;
+    background-color: #e8ffff;
+}
