@@ -1,0 +1,35 @@
+body {
+    background-color: #e8ffff;
+    color: black;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #008b8b;
+    margin-top: 50px;
+}
+
+.contact {
+    width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border: 3px solid #FF8500;
+    border-radius: 20px;
+}
+button {
+    background-color: #00a8a8;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #007575;
+}
