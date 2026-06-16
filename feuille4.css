@@ -19,7 +19,7 @@ section {
     border-left: 5px solid cyan;
 }
 
-button {
+.button {
     background-color: #00a8a8;
     color: white;
     border: none;
@@ -31,7 +31,7 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
+.button:hover {
     background-color: #007575;
 }
 
