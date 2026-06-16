@@ -18,7 +18,7 @@ h1 {
     border: 3px solid #FF8500;
     border-radius: 20px;
 }
-boutton {
+.boutton {
     background-color: #00a8a8;
     color: white;
     border: none;
@@ -30,6 +30,6 @@ boutton {
     transition: background-color 0.3s;
 }
 
-boutton:hover {
+.boutton:hover {
     background-color: #007575;
 }
