@@ -36,6 +36,7 @@ section {
 }
 
 .activite {
+    position: relative;
     width: 300px;
     margin: 20px auto;
     padding: 20px;
@@ -43,8 +44,10 @@ section {
     border-radius: 15px;
     text-align: center;
     font-weight: bold;
-	transition: background-color 0.3s;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
+
 .activite:hover {
     background-color: #FF9000;
 }
@@ -57,25 +60,12 @@ section {
     width: 100%;
     margin-top: 10px;
     padding: 15px;
-    background-color: white;
+    background: white;
     border: 2px solid #FFA42E;
     border-radius: 10px;
     box-sizing: border-box;
     font-weight: normal;
     z-index: 100;
-}
-
-.activite {
-    width: 300px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #FFA42E;
-    border-radius: 15px;
-    text-align: center;
-    font-weight: bold;
-    position: relative;
-    cursor: pointer;
-	transition: background-color 0.3s;
 }
 
 .activite.active .description {
