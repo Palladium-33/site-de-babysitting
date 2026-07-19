@@ -79,6 +79,6 @@ section {
 	transition: background-color 0.3s;
 }
 
-.activite:hover .description {
+.activite.active .description {
     display: block;
 }
