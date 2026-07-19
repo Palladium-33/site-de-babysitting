@@ -63,7 +63,6 @@ section {
     box-sizing: border-box;
     font-weight: normal;
     z-index: 100;
-	transition: background-color 0.3s;
 }
 
 .activite {
