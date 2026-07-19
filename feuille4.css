@@ -43,23 +43,23 @@ section {
 }
 
 .activite summary {
-    list-style: none;
-    cursor: pointer;
     padding: 20px;
-    text-align: center;
+    cursor: pointer;
     font-weight: bold;
+    text-align: center;
+    list-style: none;
 }
 
 .activite summary::-webkit-details-marker {
     display: none;
 }
 
-.activite summary:hover {
+.activite[open] summary {
     background-color: #FF9000;
 }
 
 .description {
     padding: 15px;
-    background: white;
+    background-color: white;
     font-weight: normal;
 }
