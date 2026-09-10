@@ -1,53 +1,185 @@
+```css
+/* ==============================
+   RÉGLAGES GÉNÉRAUX
+   ============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #e8ffff;
     color: black;
     font-family: Georgia, serif;
-    max-width: 900px;
-    margin: auto;
-    padding: 5vw;
+
+    /* Largeur maximale sur PC */
+    width: 100%;
+    max-width: 1200px;
+
+    /* Centrage */
+    margin: 0 auto;
+
+    /* Espacement qui s'adapte à l'écran */
+    padding: clamp(15px, 4vw, 50px);
 }
+
+
+/* ==============================
+   TITRES
+   ============================== */
 
 h1 {
     text-align: center;
     color: #008b8b;
+
+    /* Taille adaptable */
+    font-size: clamp(1.8rem, 4vw, 3rem);
+
     padding-bottom: 10px;
+
+    /* Évite que le titre soit collé aux bords */
+    margin-left: auto;
+    margin-right: auto;
 }
+
+h2 {
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+h3 {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+}
+
+
+/* ==============================
+   SECTIONS
+   ============================== */
 
 section {
-    margin-top: 30px;
-    padding-left: 15px;
-    border-left: 5px solid cyan;
+    margin-top: clamp(20px, 4vw, 40px);
+
+    /* Espacement adaptable */
+    padding-left: clamp(10px, 2vw, 20px);
+
+    border-left: clamp(3px, 0.5vw, 5px) solid cyan;
 }
 
+
+/* ==============================
+   BOUTONS
+   ============================== */
+
 .button {
+    display: inline-block;
+
     background-color: #00a8a8;
     color: white;
+
     border: none;
     border-radius: 12px;
-    padding: 12px 24px;
-    font-size: clamp(1.2rem, 3vw, 2rem);
+
+    /* Espacement adaptable */
+    padding: clamp(10px, 2vw, 14px)
+             clamp(16px, 3vw, 28px);
+
+    /* Taille du texte adaptable */
+    font-size: clamp(1rem, 2vw, 1.4rem);
+
     font-weight: bold;
+
     cursor: pointer;
-    transition: background-color 0.3s;
+
+    transition:
+        background-color 0.3s,
+        transform 0.2s;
+
+    /* Évite que le bouton soit trop petit au toucher */
+    min-height: 44px;
 }
 
 .button:hover {
     background-color: #007575;
+    transform: translateY(-2px);
 }
+
+/* Sur les écrans tactiles, il n'y a pas de véritable "hover".
+   On garde donc un effet lors de l'appui. */
+
+.button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==============================
+   CONTENEUR
+   ============================== */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* ==============================
+   CARTES / ACTIVITÉS
+   ============================== */
+
+.cards {
+    display: grid;
+
+    /* PC : 3 colonnes */
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: clamp(15px, 2vw, 25px);
+
+    width: 100%;
+}
+
+
+/* ==============================
+   BLOC ACTIVITÉ
+   ============================== */
+
 .activite {
-    width: 300px;
+    width: 100%;
+    max-width: 350px;
+
     margin: 20px auto;
+
     background-color: #FFA42E;
+
     border-radius: 15px;
+
     overflow: hidden;
+
+    /* Évite que le contenu dépasse */
+    overflow-wrap: break-word;
 }
 
 .activite summary {
-    padding: 20px;
+    padding: clamp(15px, 3vw, 20px);
+
     cursor: pointer;
+
     font-weight: bold;
     text-align: center;
+
     list-style: none;
+
+    /* Taille adaptée au tactile */
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: clamp(1rem, 2vw, 1.3rem);
 }
 
 .activite summary::-webkit-details-marker {
@@ -59,22 +191,104 @@ section {
 }
 
 .description {
-    padding: 15px;
+    padding: clamp(12px, 3vw, 20px);
+
     background-color: white;
+
     font-weight: normal;
-}
-.container {
-    width: min(1200px, 90%);
-    margin: 0 auto;
+
+    /* Texte lisible sur petit écran */
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+
+    line-height: 1.5;
+
+    overflow-wrap: break-word;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-@media (max-width: 768px) {
+
+/* ==============================
+   TABLETTES
+   Entre environ 600 et 900 px
+   ============================== */
+
+@media (max-width: 900px) {
+
     .cards {
-        grid-template-columns: 1fr;
+        /* 2 colonnes sur tablette */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .activite {
+        max-width: 100%;
     }
 }
+
+
+/* ==============================
+   SMARTPHONES
+   Jusqu'à environ 600 px
+   ============================== */
+
+@media (max-width: 600px) {
+
+    body {
+        /* Réduit les marges sur smartphone */
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: clamp(1.7rem, 8vw, 2.3rem);
+    }
+
+    section {
+        margin-top: 20px;
+        padding-left: 10px;
+    }
+
+    .cards {
+        /* Une seule colonne */
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .activite {
+        width: 100%;
+        max-width: none;
+
+        margin: 15px 0;
+    }
+
+    .button {
+        /* Les boutons peuvent prendre davantage de place */
+        width: 100%;
+
+        font-size: 1.1rem;
+    }
+}
+
+
+/* ==============================
+   TRÈS PETITS SMARTPHONES
+   ============================== */
+
+@media (max-width: 380px) {
+
+    body {
+        padding: 10px;
+    }
+
+    section {
+        padding-left: 8px;
+    }
+
+    .activite summary {
+        padding: 14px 10px;
+    }
+
+    .description {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+}
+```
