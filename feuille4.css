@@ -1,294 +1,172 @@
-```css
 /* ==============================
-   RÉGLAGES GÉNÉRAUX
+   PAGE CV — responsive
    ============================== */
 
-* {
-    box-sizing: border-box;
+:root {
+  --teal: #07819C;
+  --teal-light: #00a8a8;
+  --teal-dark: #005f73;
+  --orange: #FF8500;
+  --orange-soft: #FFA42E;
+  --bg: #e8ffff;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #4b5563;
+  --radius: 16px;
+  --shadow: 0 4px 14px rgba(0, 60, 80, .10);
 }
 
-html {
-    scroll-behavior: smooth;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
 body {
-    background-color: #e8ffff;
-    color: black;
-    font-family: Georgia, serif;
-
-    /* Largeur maximale sur PC */
-    width: 100%;
-    max-width: 1200px;
-
-    /* Centrage */
-    margin: 0 auto;
-
-    /* Espacement qui s'adapte à l'écran */
-    padding: clamp(15px, 4vw, 50px);
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+/* ===== Navigation ===== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, .95);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .3rem;
+  padding: .6rem .8rem;
+}
+.nav-link {
+  text-decoration: none;
+  color: var(--teal-dark);
+  font-weight: 600;
+  padding: .5rem 1rem;
+  border-radius: 999px;
+  font-size: .95rem;
+  transition: background .2s, color .2s;
+  text-align: center;
+}
+.nav-link:hover, .nav-link:focus {
+  background: var(--teal);
+  color: #fff;
+}
 
-/* ==============================
-   TITRES
-   ============================== */
+/* ===== Contenu ===== */
+main {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem) 1rem;
+  text-align: center;
+  flex: 1;
+}
 
 h1 {
-    text-align: center;
-    color: #008b8b;
-
-    /* Taille adaptable */
-    font-size: clamp(1.8rem, 4vw, 3rem);
-
-    padding-bottom: 10px;
-
-    /* Évite que le titre soit collé aux bords */
-    margin-left: auto;
-    margin-right: auto;
+  text-align: center;
+  color: var(--teal);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  margin-bottom: 1.5rem;
 }
 
-h2 {
-    font-size: clamp(1.4rem, 3vw, 2.2rem);
+/* ===== Grille CV ===== */
+.cv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
-
-h3 {
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-}
-
-
-/* ==============================
-   SECTIONS
-   ============================== */
-
-section {
-    margin-top: clamp(20px, 4vw, 40px);
-
-    /* Espacement adaptable */
-    padding-left: clamp(10px, 2vw, 20px);
-
-    border-left: clamp(3px, 0.5vw, 5px) solid cyan;
-}
-
-
-/* ==============================
-   BOUTONS
-   ============================== */
-
-.button {
-    display: inline-block;
-
-    background-color: #00a8a8;
-    color: white;
-
-    border: none;
-    border-radius: 12px;
-
-    /* Espacement adaptable */
-    padding: clamp(10px, 2vw, 14px)
-             clamp(16px, 3vw, 28px);
-
-    /* Taille du texte adaptable */
-    font-size: clamp(1rem, 2vw, 1.4rem);
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.3s,
-        transform 0.2s;
-
-    /* Évite que le bouton soit trop petit au toucher */
-    min-height: 44px;
-}
-
-.button:hover {
-    background-color: #007575;
-    transform: translateY(-2px);
-}
-
-/* Sur les écrans tactiles, il n'y a pas de véritable "hover".
-   On garde donc un effet lors de l'appui. */
-
-.button:active {
-    transform: scale(0.98);
-}
-
-
-/* ==============================
-   CONTENEUR
-   ============================== */
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-
-    margin: 0 auto;
-}
-
-
-/* ==============================
-   CARTES / ACTIVITÉS
-   ============================== */
-
-.cards {
-    display: grid;
-
-    /* PC : 3 colonnes */
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: clamp(15px, 2vw, 25px);
-
-    width: 100%;
-}
-
-
-/* ==============================
-   BLOC ACTIVITÉ
-   ============================== */
 
 .activite {
-    width: 100%;
-    max-width: 350px;
-
-    margin: 20px auto;
-
-    background-color: #FFA42E;
-
-    border-radius: 15px;
-
-    overflow: hidden;
-
-    /* Évite que le contenu dépasse */
-    overflow-wrap: break-word;
+  background: linear-gradient(160deg, var(--orange-soft), var(--orange));
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  text-align: left;
+  position: relative;
 }
 
 .activite summary {
-    padding: clamp(15px, 3vw, 20px);
-
-    cursor: pointer;
-
-    font-weight: bold;
-    text-align: center;
-
-    list-style: none;
-
-    /* Taille adaptée au tactile */
-    min-height: 44px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: clamp(1rem, 2vw, 1.3rem);
+  padding: clamp(12px, 3vw, 16px) 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  min-height: 44px;
+  font-size: clamp(.95rem, 2vw, 1.1rem);
 }
 
-.activite summary::-webkit-details-marker {
-    display: none;
+.activite summary::-webkit-details-marker { display: none; }
+
+.activite summary::after {
+  content: "▾";
+  transition: transform .2s;
 }
 
-.activite[open] summary {
-    background-color: #FF9000;
-}
+.activite[open] summary::after { transform: rotate(180deg); }
+
+.activite[open] summary { background-color: rgba(0, 0, 0, .12); }
 
 .description {
-    padding: clamp(12px, 3vw, 20px);
-
-    background-color: white;
-
-    font-weight: normal;
-
-    /* Texte lisible sur petit écran */
-    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-
-    line-height: 1.5;
-
-    overflow-wrap: break-word;
+  padding: clamp(12px, 3vw, 16px) 1rem;
+  background-color: var(--card);
+  color: var(--text);
+  font-weight: normal;
+  font-size: clamp(.92rem, 1.8vw, 1rem);
+  line-height: 1.5;
+  overflow-wrap: break-word;
 }
 
+.competences { max-width: 600px; margin: 0 auto 1rem; }
 
-/* ==============================
-   TABLETTES
-   Entre environ 600 et 900 px
-   ============================== */
+/* ===== Bouton retour ===== */
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: var(--teal-light);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: clamp(10px, 2vw, 14px) clamp(16px, 3vw, 28px);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color .3s, transform .2s;
+  min-height: 44px;
+}
+.button:hover { background-color: #007575; transform: translateY(-2px); }
+.button:active { transform: scale(.98); }
 
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .85rem;
+  padding: 1.5rem 1rem 2rem;
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 900px) {
-
-    .cards {
-        /* 2 colonnes sur tablette */
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .activite {
-        max-width: 100%;
-    }
+  .cv-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-
-/* ==============================
-   SMARTPHONES
-   Jusqu'à environ 600 px
-   ============================== */
 
 @media (max-width: 600px) {
-
-    body {
-        /* Réduit les marges sur smartphone */
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: clamp(1.7rem, 8vw, 2.3rem);
-    }
-
-    section {
-        margin-top: 20px;
-        padding-left: 10px;
-    }
-
-    .cards {
-        /* Une seule colonne */
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-    .activite {
-        width: 100%;
-        max-width: none;
-
-        margin: 15px 0;
-    }
-
-    .button {
-        /* Les boutons peuvent prendre davantage de place */
-        width: 100%;
-
-        font-size: 1.1rem;
-    }
+  .cv-grid { grid-template-columns: 1fr; }
+  nav { flex-direction: column; }
+  .nav-link { display: block; width: 100%; }
 }
-
-
-/* ==============================
-   TRÈS PETITS SMARTPHONES
-   ============================== */
 
 @media (max-width: 380px) {
-
-    body {
-        padding: 10px;
-    }
-
-    section {
-        padding-left: 8px;
-    }
-
-    .activite summary {
-        padding: 14px 10px;
-    }
-
-    .description {
-        padding: 12px;
-        font-size: 0.95rem;
-    }
+  main { padding: 1rem .75rem; }
+  .activite summary { padding: 12px .75rem; }
 }
-```
