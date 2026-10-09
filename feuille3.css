@@ -1,115 +1,179 @@
+/* ===== Pages activités et tarifs ===== */
+
+:root {
+  --teal: #07819C;
+  --teal-light: #00a8a8;
+  --teal-dark: #005f73;
+  --orange: #FF8500;
+  --orange-soft: #FFA42E;
+  --bg: #e8ffff;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #4b5563;
+  --radius: 16px;
+  --shadow: 0 4px 14px rgba(0, 60, 80, .10);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-    background-color: #e8ffff;
-    color: black;
-    font-family: Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Navigation ===== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, .95);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .3rem;
+  padding: .6rem .8rem;
+}
+.nav-link {
+  text-decoration: none;
+  color: var(--teal-dark);
+  font-weight: 600;
+  padding: .5rem 1rem;
+  border-radius: 999px;
+  font-size: .95rem;
+  transition: background .2s, color .2s;
+  text-align: center;
+}
+.nav-link:hover, .nav-link:focus {
+  background: var(--teal);
+  color: #fff;
+}
+
+/* ===== Contenu ===== */
+main {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem) 1rem;
+  text-align: center;
+  flex: 1;
 }
 
 h1 {
-    text-align: center;
-    color: #008b8b;
+  text-align: center;
+  color: var(--teal);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Blocs activités ===== */
+.activities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
 }
 
 .activite {
-    width: 300px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #FFA42E;
-    border-radius: 15px;
-    text-align: center;
-    font-weight: bold;
-	transition: background-color 0.3s;
+  background: linear-gradient(160deg, var(--orange-soft), var(--orange));
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  box-shadow: var(--shadow);
+  transition: transform .2s, box-shadow .2s;
 }
 .activite:hover {
-    background-color: #FF9000;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 60, 80, .16);
 }
-
-.button {
-    background-color: #00a8a8;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 12px 24px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.activite h3 {
+  font-size: 1.15rem;
+  margin-bottom: .5rem;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  justify-content: center;
 }
+.activite p { font-size: .97rem; opacity: .96; }
 
-.button:hover {
-    background-color: #007575;
-}
-
-.activite {
-    width: 300px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #FFA42E;
-    border-radius: 15px;
-    text-align: center;
-    font-weight: bold;
-    position: relative;
-    cursor: pointer;
-	transition: background-color 0.3s;
-}
-
-.description {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    margin-top: 10px;
-    padding: 15px;
-    background-color: white;
-    border: 2px solid #FFA42E;
-    border-radius: 10px;
-    box-sizing: border-box;
-    font-weight: normal;
-    z-index: 100;
-	transition: background-color 0.3s;
-}
-
-.activite:hover .description {
-    display: block;
-}
-
-
+/* ===== Tableau tarifs ===== */
+.table { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
 
 table {
-    width: 70%;
-    margin: auto;
-    border-collapse: collapse;
-	border-spacing: 0;
-    background-color: white; /* même couleur que la page */
-    border: 3px solid orange;
-	border-radius: 25 px;
-	overflow: hidden;
+  width: 100%;
+  margin: auto;
+  border-collapse: collapse;
+  background-color: var(--card);
+  min-width: 480px;
 }
 
 th {
-    border: 2px solid orange;
-    padding: 12px;
-    background-color: #e8ffff;
-    color: #008b8b;
+  padding: .85rem 1rem;
+  text-align: left;
+  background-color: var(--teal);
+  color: #fff;
+  font-size: .95rem;
+  white-space: nowrap;
 }
 
 td {
-    border: 2px solid orange;
-    padding: 12px;
-    background-color: #e8ffff;
-}
-.container {
-    width: min(1200px, 90%);
-    margin: 0 auto;
+  padding: .85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #d6f2f7;
+  font-size: .95rem;
+  background-color: transparent;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+td:first-child {
+  font-weight: 600;
+  color: var(--teal-dark);
+  white-space: nowrap;
 }
-@media (max-width: 768px) {
-    .cards {
-        grid-template-columns: 1fr;
-    }
+
+tr:nth-child(even) td { background-color: #f4fdff; }
+tr:last-child td { border-bottom: none; }
+
+.note {
+  margin-top: 1.2rem;
+  color: var(--muted);
+  font-size: .95rem;
+}
+.note a { color: var(--teal-dark); font-weight: 600; }
+
+/* ===== Bouton retour ===== */
+.button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background-color: var(--teal-light);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: clamp(10px, 2vw, 14px) clamp(16px, 3vw, 28px);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color .3s, transform .2s;
+  min-height: 44px;
+}
+.button:hover { background-color: #007575; transform: translateY(-2px); }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .85rem;
+  padding: 1.5rem 1rem 2rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  nav { flex-direction: column; }
+  .nav-link { display: block; width: 100%; }
+  .table { overflow-x: auto; }
 }
