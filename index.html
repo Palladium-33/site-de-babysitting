@@ -1,39 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <title>Baby sitting</title>
-	<link rel="stylesheet" href="feuille1.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="feuille1.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-  
-	<div class="bandeau-cyan">
-	</br>
-	</br>
-	</br>
-	</br>
-	</br>
-	</br>
-		<center><h1>Bienvenue sur mon site de Babysitting !</h1></center>
-    </div>
-	</br>
-	</br>
-	<link rel="stylesheet" href="feuille.css">
-	<center> <!-- pour centrer le tableau-->
-	<table border="0" cellspacing="0" cellpadding="0" width="90%" text-align:center>
-		<!-- cellspacing : espace entre les cellules-->
-		<!-- cellpading : espace entre le texte et les bords des cellules -->
-		<!-- width="50% : le tableau est sur 50% de la page -->
 
-		<tr>
-			<th><u><a href="mecontacter.html" class="button"> me contacter </a></u></th> 
-			<th><u><a href="activitéesproposées.html" class="button"> activitées proposées </a></u></th>
-			<th><u><a href="CV.html" class="button"> mon CV </a></u></th>
-			<th><u><a href="tarifsethoraires.html" class="button"> tarifs et horaires </a></u></th>
-		</tr>
+    <header class="bandeau-cyan">
+      <h1>Bienvenue sur mon site de Babysitting !</h1>
+      <p>Baby-sitting à Talence et alentours — gardes de qualité, activités adaptées et gestes de premiers secours (PSC1).</p>
+    </header>
 
-	</table>
-</center>
+    <nav>
+      <a class="nav-link" href="mecontacter.html">Me contacter</a>
+      <a class="nav-link" href="activitéesproposées.html">Activités proposées</a>
+      <a class="nav-link" href="CV.html">Mon CV</a>
+      <a class="nav-link" href="tarifsethoraires.html">Tarifs et horaires</a>
+    </nav>
+
+    <main>
+      <div class="cards">
+        <a class="card" href="mecontacter.html">
+          <span class="icon">📞</span>
+          <b>Me contacter</b>
+          <small>Téléphone, SMS, mail, LinkedIn</small>
+        </a>
+        <a class="card" href="activitéesproposées.html">
+          <span class="icon">🎨</span>
+          <b>Activités proposées</b>
+          <small>Jeux, lecture, créations</small>
+        </a>
+        <a class="card" href="CV.html">
+          <span class="icon">📄</span>
+          <b>Mon CV</b>
+          <small>Expérience et diplômes</small>
+        </a>
+        <a class="card" href="tarifsethoraires.html">
+          <span class="icon">💶</span>
+          <b>Tarifs et horaires</b>
+          <small>10 €/h — de 7h à 2h</small>
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      Baby-sitting — Charly Bertin–Moitié · Talence<br>
+      Site conçu et codé par moi-même 👦💻
+    </footer>
 
   </body>
 </html>
